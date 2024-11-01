@@ -1,0 +1,381 @@
+// TODO: figure out why this is neccessary
+
+
+
+
+.grid-container, .grid-x {
+  width: 100%;
+}
+
+@each $label, $color in $colors {
+
+  .#{$label}-bg {
+    background: $color !important;
+  }
+
+}
+
+a,
+.transition {
+  transition: 250ms all ease-out;
+
+  i {
+
+  }
+}
+
+.transparent-bg {
+  background-color: transparent !important;
+}
+
+.spacer {
+  width: 100%;
+  float: left;
+  clear: left;
+  height: 50px;
+
+  &.xsmall {
+    height: 15px;
+  }
+
+  &.small {
+    height: 25px;
+  }
+
+  &.medium {
+    height: 50px;
+  }
+
+  &.large {
+    height: 75px;
+  }
+
+  &.xlarge {
+    height: 100px;
+  }
+}
+
+.responsive-video-container {
+
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+
+  iframe, object, embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+.margin-auto,
+.auto-margin {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0 !important;
+}
+
+.box-shadow-container {
+  @include box_shadow;
+  clear: both;
+  padding: 5px;
+  background-color: white;
+}
+
+.no-bottom-margin-children {
+  * {
+    margin-bottom: 0 !important;
+  }
+}
+
+.no-margin-children {
+  * {
+    margin: 0 !important;
+  }
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.padding-box {
+  padding: 15px !important;
+
+  &.large {
+    padding: 30px !important;
+  }
+
+  &.small {
+    padding: 7px !important;
+  }
+}
+
+.flex-center,
+.center-flex {
+  @include center;
+}
+
+hr {
+  margin: 15px auto;
+  width: 100%;
+
+  &.small {
+    margin: 7px auto;
+  }
+
+  &.xsmall {
+    margin: 4px auto;
+  }
+
+}
+
+.auto_dims {
+  width: 100%;
+  height: 100%;
+}
+
+.no-max-width {
+  max-width: none !important;
+}
+
+.bg-img {
+  background-position: center;
+  background-size: cover;
+}
+
+.single-line-height {
+  line-height: 1;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-grow {
+  flex: 1 1 auto;
+}
+
+.flex-shrink {
+  flex: 0 1 0;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.space-left {
+  margin-left: 7px;
+}
+
+.space-right {
+  margin-right: 7px;
+}
+
+.space-top {
+  margin-top: 7px;
+}
+
+.space-bottom {
+  margin-bottom: 7px;
+}
+
+.auto-left {
+  margin-left: auto;
+}
+
+.auto-right {
+  margin-right: auto;
+}
+
+.auto-top {
+  margin-top: auto;
+}
+
+.auto-bottom {
+  margin-bottom: auto;
+}
+
+.full-width {
+  width: 100%;
+  max-width: none;
+}
+
+.standard-width {
+  max-width: 1500px;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.block {
+  display: block;
+}
+
+.letter-space {
+  letter-spacing: .5px;
+}
+
+.large-letter-space {
+  letter-spacing: 1.5px;
+}
+
+.underline {
+  transition: 250ms all ease-out;
+  &:hover {
+    text-decoration: underline;
+
+  }
+}
+
+.italic {
+  font-style: italic;
+}
+
+.center-text {
+  justify-content: center;
+}
+
+.arrow_link {
+  &:after {
+    content: "";
+    font-family: 'Font Awesome 5 Free';
+    content: "\f061";
+    font-weight: 900;
+  }
+}
+
+img {
+  &.alignleft {
+    float: left;
+    margin: 0 15px 15px 0;
+  }
+
+  &.aligncenter {
+    display: block;
+    margin: 0 auto 15px;
+  }
+
+  &.alignright {
+    float: right;
+    margin: 0 0 15px 15px;
+  }
+
+}
+
+.clear {
+  clear: both;
+  float: left;
+  width: 100%;
+}
+
+.wp-caption {
+  width: auto !important;
+}
+
+.is-page-builder-wrapper {
+  .grid-x,
+  .cell {
+    //position: relative;
+  }
+
+  .grid-x > .is_admin_page_builder_label {
+    top: -35px;
+    left: 12px;
+  }
+}
+
+.is_admin_page_builder_label {
+  color: rgba(0, 0, 0, .2);
+  font-size: 12px;
+  position: absolute;
+  top: -12px;
+  z-index: 10;
+  // TODO: remove this to reactivate labels
+  // took it out because we needed to be able to push elements outside the row
+  display: none;
+}
+
+hr,
+.is_divider {
+
+  width: 100%;
+  height: 3px;
+  background: $gray_dark;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    color: $primary;
+  }
+
+  @each $label, $color in $is_global_palette {
+    &.#{$label}:before {
+      background: $color;
+    }
+  }
+
+}
+
+.light-text-weight, .text-weight-100 {
+  font-weight: 100;
+}
+
+.bold-text-weight, .text-weight-700 {
+  font-weight: 700;
+}
+
+.heavy-text-weight, .text-weight-900 {
+  font-weight: 900;
+}
+
+.underline-text {
+  text-decoration: underline;
+}
+
+#wpadminbar {
+  .fa, .fas, .fab {
+    font-family: fontawesome;
+
+    & * {
+      font-family: fontawesome;
+    }
+
+  }
+}
+
+.cursor_pointer,
+.pointer_cursor {
+  cursor: pointer;
+}
+
+.no_outline {
+  outline: none !important;
+}
+
+[data-link] {
+  cursor: pointer;
+}

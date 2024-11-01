@@ -1,0 +1,9 @@
+<ul class="menu align-right">
+    {% for account in social %}
+        <li>
+            <a href="{{ account.url }}" target="_blank">
+                <i class="fab fa-{{ account.network }}"></i>
+            </a>
+        </li>
+    {% endfor %}
+</ul>

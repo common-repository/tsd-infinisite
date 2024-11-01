@@ -1,0 +1,15 @@
+<div class="is-multiple_images">
+    <div class="grid-x small-up-1 medium-up-4 align-middle">
+        <div class="cell">
+            <h2>twig template</h2>
+        </div>
+        {% for image in module.images %}
+        <div class="cell">
+            <img src="{{ image.sizes.medium }}" alt=""/>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="cell">
+        <hr>
+    </div>
+</div>

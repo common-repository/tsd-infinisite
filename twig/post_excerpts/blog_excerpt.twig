@@ -1,0 +1,22 @@
+<div class="cell">
+
+    <h2>{{ post.post_title }}</h2>
+
+    {% if post.post_date %}
+        <h6>{{ post.post_date | date("F jS, Y") }}</h6>
+    {% endif %}
+
+    {% if fields.author_post %}
+        <p>Post By: {{ fields.author_post.0.post_title }}</p>
+    {% endif %}
+
+    {% if fields.excerpt %}
+        {{ fields.excerpt | raw }}
+    {% endif %}
+
+    {% if permalink %}
+        <a href="{{ permalink }}" class="">Read More</a>
+    {% endif %}
+
+    <div class="spacer"></div>
+</div>

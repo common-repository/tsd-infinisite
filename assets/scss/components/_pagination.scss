@@ -1,0 +1,38 @@
+.is_page_builder_row,
+[data-editor-stye] {
+  ul.page-numbers {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 0 7px;
+
+      * {
+        font-size: 13px;
+      }
+
+      a {
+        text-decoration: none;
+        border: 1px solid;
+        min-width: 23px;
+        height: 23px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.prev,
+        &.next {
+          border: none;
+        }
+      }
+
+    }
+
+  }
+}

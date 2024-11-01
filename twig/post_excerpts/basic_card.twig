@@ -1,0 +1,66 @@
+<div class="cell">
+    <div class="card primary">
+
+        <div class="card-divider">
+            <a href="{{ permalink }}">
+                <h5>
+                    {{ post.post_title }}
+                </h5>
+            </a>
+
+            <br>
+
+            {% if post.post_date %}
+                <p class="gray_light-text auto-left">{{ post.post_date | date("F jS, Y") }}</p>
+            {% endif %}
+        </div>
+
+
+        <div class="card-section">
+
+
+            {% if categories %}
+                {% for category in categories %}
+
+                    {% if category.terms %}
+                        <p class="no-margin">{{ category.taxonomy.label }}</p>
+
+                        <p style="font-style: italic">
+                            {% for term in category.terms %}
+                                {{ term.name }}
+                            {% endfor %}
+                        </p>
+                    {% endif %}
+
+                {% endfor %}
+
+            {% endif %}
+
+            {% if fields.author_post %}
+                <p>Post By: {{ fields.author_post.0.post_title }}</p>
+            {% endif %}
+
+            <div class="grid-container grid-x grid-padding-x no-padding no-margin align-middle">
+                {% if fields.image %}
+                    <div class="cell medium-3 text-center">
+                        <a href="{{ permalink }}">
+                            <img src="{{ fields.image.sizes.medium }}" alt="">
+                        </a>
+                    </div>
+                {% endif %}
+
+                <div class="cell auto">
+                    {% if fields.excerpt %}
+                        {{ fields.excerpt | raw }}
+                    {% endif %}
+
+                    {% if permalink %}
+                        <a href="{{ permalink }}" class="arrow_link">Read More </a>
+                    {% endif %}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

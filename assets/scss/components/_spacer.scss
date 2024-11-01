@@ -1,0 +1,92 @@
+$responsive_spacer_groups : (
+        'small down' : (
+                xsmall: 5px,
+                small : 12px,
+                medium : 30px,
+                large : 45px,
+                xlarge : 60px,
+        ),
+        'medium only' : (
+                xsmall: 12px,
+                small : 20px,
+                medium : 45px,
+                large : 68px,
+                xlarge : 90px,
+        ),
+        'large only' : (
+                xsmall: 15px,
+                small : 25px,
+                medium : 50px,
+                large : 75px,
+                xlarge : 100px,
+        ),
+        'xlarge up' : (
+                xsmall: 15px,
+                small : 25px,
+                medium : 50px,
+                large : 75px,
+                xlarge : 100px,
+        ),
+);
+
+
+
+@include breakpoint(small down){
+
+  @each $label, $measurement in map-get($responsive_spacer_groups, 'small down') {
+
+    .ispb_row_spacing_top_#{$label} {
+      padding-top: $measurement;
+    }
+    .ispb_row_spacing_bottom_#{$label} {
+      padding-bottom: $measurement;
+    }
+
+  }
+}
+
+@include breakpoint(medium only){
+
+  @each $label, $measurement in map-get($responsive_spacer_groups, 'medium only') {
+
+    .ispb_row_spacing_top_#{$label} {
+      padding-top: $measurement;
+    }
+    .ispb_row_spacing_bottom_#{$label} {
+      padding-bottom: $measurement;
+    }
+
+  }
+}
+
+
+@include breakpoint(large only){
+
+  @each $label, $measurement in map-get($responsive_spacer_groups, 'large only') {
+
+    .ispb_row_spacing_top_#{$label} {
+      padding-top: $measurement;
+    }
+    .ispb_row_spacing_bottom_#{$label} {
+      padding-bottom: $measurement;
+    }
+
+  }
+}
+
+@include breakpoint(xlarge up){
+
+  @each $label, $measurement in map-get($responsive_spacer_groups, 'xlarge up') {
+
+    .ispb_row_spacing_top_#{$label} {
+      padding-top: $measurement;
+    }
+    .ispb_row_spacing_bottom_#{$label} {
+      padding-bottom: $measurement;
+    }
+
+  }
+}
+
+
+

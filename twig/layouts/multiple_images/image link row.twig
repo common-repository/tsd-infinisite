@@ -1,0 +1,13 @@
+<div class="is-multiple_images">
+    <div class="grid-x small-up-1 medium-up-{{ module.images | length }} align-middle">
+        {% for image in module.images %}
+            <div class="cell">
+                {% if image.description %}
+                    <a href="{{ image.description }}" target="_blank">
+                        <img src="{{ image.sizes.thumbnail }}" alt=""/>
+                    </a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>

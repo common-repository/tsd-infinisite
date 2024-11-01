@@ -1,0 +1,60 @@
+@mixin ispb_layout_label_style() {
+
+  position: relative;
+  &::before {
+    position: absolute;
+    font-size: 7px;
+    color: $gray;
+    top: 0;
+    left: 0;
+    transition: 250ms all ease-out;
+
+  }
+  transition: 250ms all ease-out;
+
+  &:hover {
+    &:before {
+      color: $gray-xdark;
+      font-weight: 600;
+    }
+  }
+}
+
+body.admin-bar {
+
+  [data-ispb-row] {
+    @include ispb_layout_label_style();
+
+    &:before {
+      content: "Row " attr(data-ispb-row);
+    }
+  }
+
+  [data-ispb-cell] {
+    @include ispb_layout_label_style();
+    &:before {
+      content: "Cell " attr(data-ispb-cell);
+    }
+  }
+}
+
+.is-header {
+
+  .module-element {
+
+    display: flex;
+    align-items: center;
+
+    i {
+      padding-right: 10px;
+    }
+
+  }
+}
+
+.is-post-excerpt {
+
+  .archive-pagination {
+  }
+
+}

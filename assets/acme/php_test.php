@@ -1,0 +1,5 @@
+<?
+
+/**
+ * PHP scratch pad area
+ */

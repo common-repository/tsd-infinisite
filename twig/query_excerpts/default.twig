@@ -1,0 +1,12 @@
+<div class="cell is-default-post-archive-query-template">
+    <h2>query template here</h2>
+    <p>Your query found {{ found_posts }} total, but is showing {{ query.posts_per_page }}</p>
+
+
+    {% for post in posts %}
+
+        <p>{{ post.post_title }}</p>
+
+    {% endfor %}
+
+</div>

@@ -1,0 +1,60 @@
+@import 'is_variables';
+
+@each $name, $color in $is_global_palette {
+
+  &.#{$name}-background {
+    background-color: $color !important;
+  }
+
+  &.#{$name}-background-hover {
+    &:hover {
+      background-color: $color !important;
+    }
+  }
+
+  &.#{$name}-background-children {
+    * {
+      background-color: $color;
+    }
+  }
+
+  &.#{$name}-text {
+    color: $color !important;
+
+    :before, :after {
+      border-color: $color !important;
+    }
+  }
+
+  &.#{$name}-text-children {
+    * {
+      color: $color;
+    }
+
+    :before, :after {
+      border-color: $color !important;
+    }
+  }
+
+  &.#{$name}-text-hover {
+    &:hover {
+      color: $color !important;
+
+      :before, :after {
+        border-color: $color !important;
+      }
+    }
+  }
+
+  hr.#{$name} {
+    border-color: $color !important;
+  }
+
+}
+
+.mce-content-body {
+
+  .white-text {
+    background: $gray_light;
+  }
+}

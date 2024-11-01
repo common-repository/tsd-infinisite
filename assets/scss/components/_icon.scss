@@ -1,0 +1,4 @@
+@for $i from 11 through 30 {
+  .fa-#{$i}x{ font-size: #{$i}em };
+}
+

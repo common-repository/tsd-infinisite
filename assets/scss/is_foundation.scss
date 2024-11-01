@@ -1,0 +1,12 @@
+// start off with foundation base import
+@import '../../bower_components/foundation-sites/scss/foundation';
+
+// grab the base files that we're going to use
+@import 'variables';
+@import 'mixins';
+@import '../acme/is_variables';
+
+@include foundation-grid;
+@include foundation-off-canvas;
+@include foundation-xy-grid-classes;
+@include foundation-flex-classes;

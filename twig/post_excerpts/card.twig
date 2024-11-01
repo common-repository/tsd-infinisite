@@ -1,0 +1,23 @@
+<div class="card cell">
+    {% if post.image %}
+        <img src="{{ fields.image.sizes.medium }}" alt="{{ post.post_title }}" style="height: auto"/>
+    {% endif %}
+
+    {% if post.post_title %}
+        <div class="card-divider">
+            <h3>{{ post.post_title }}</h3>
+        </div>
+    {% endif %}
+
+    {% if fields.excerpt %}
+        <div class="card-section">
+            {{ fields.excerpt | raw }}
+        </div>
+    {% endif %}
+
+    {% if permalink %}
+    <div class="card-section">
+        <a href="{{ permalink }}" class="button">Read More</a>
+    </div>
+    {% endif %}
+</div>

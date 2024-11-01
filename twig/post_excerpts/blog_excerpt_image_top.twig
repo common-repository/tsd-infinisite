@@ -1,0 +1,31 @@
+<div class="cell">
+    <div class="grid-y grid-padding-y">
+
+        {% if fields.image %}
+            <div class="cell">
+                <img src="{{ fields.image.sizes.large }}" alt="{{ post.post_title }}">
+            </div>
+        {% endif %}
+        <div class="cell">
+
+            {% if fields.start_date %}
+                <h5>{{ fields.start_date | date("F j, Y") }}</h5>
+            {% endif %}
+
+            <h2>{{ post.post_title }}</h2>
+            {% if fields.excerpt %}
+                {{ fields.excerpt | raw }}
+            {% endif %}
+        </div>
+    </div>
+    <div class="grid-x align-middle">
+        <div class="cell auto">
+            <a href="{{ post.permalink }}" class="arrow_link">Learn More</a>
+        </div>
+        {% if fields.file %}
+            <div class="cell auto text-right">
+                <a href="{{ fields.file.url }}" class="button hollow">Download File</a>
+            </div>
+        {% endif %}
+    </div>
+</div>

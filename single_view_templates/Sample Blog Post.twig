@@ -1,0 +1,41 @@
+<div class='is-page-builder-wrapper'>
+
+    <div class="grid-container">
+        <div class="grid-x">
+
+            <div class="cell">
+                {{ top_sidebar_html | raw }}
+            </div>
+
+            <div class='cell'>
+                <div class='grid-x'>
+
+                    <div class="cell shrink">
+                        {{ left_sidebar_html | raw }}
+                    </div>
+
+                    {% if fields.image %}
+                        <div class="cell shrink">
+                            <img src="{{ fields.image.sizes.medium }}" alt="">
+                        </div>
+                    {% endif %}
+
+                    <div class='cell auto'>
+                        {{ page_builder_html_output | raw }}
+                    </div>
+
+                    <div class="cell shrink">
+                        {{ right_sidebar_html | raw }}
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="cell">
+                {{ bottom_sidebar_html | raw }}
+            </div>
+        </div>
+    </div>
+
+</div>

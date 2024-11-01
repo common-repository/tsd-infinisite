@@ -1,0 +1,69 @@
+{% set engine = display.post_archive_filter_display_config_searchwp_engine %}
+{% set keyword_search = display.post_archive_filter_display_config_keyword_search %}
+{% set filter_title = "Filter & Search" %}
+{% if display.post_archive_filter_display_config_filter_title %}
+    {% set filter_title = display.post_archive_filter_display_config_filter_title %}
+{% endif %}
+
+{# the engine value is the swp engine that we're using #}
+<div class="grid-x align-middle align-center is-filter-simple-button-filter">
+
+    <div class="cell shrink ">
+        <h3 class="open-sans">{{ filter_title }}</h3>
+
+        {% if keyword_search %}
+            <input type="hidden" name="{{ id }}[engine]" value="{{ engine }}"/>
+
+            <div class="spacer xsmall"></div>
+            <div class="grid-x align-middle is_post_excerpt_filter_keyword_search">
+                <div class="cell shrink">
+                    <i class="fa fa-search gray_xlight-text"></i>
+                </div>
+                <div class="cell auto space-left space-right">
+                    <input
+                            type="text"
+                            placeholder="Keyword Search"
+                            name="{{ id }}[keyword]"
+                            class="no-margin"
+                            value="{{ current_keyword }}"
+                    >
+                </div>
+            </div>
+        {% endif %}
+
+    </div>
+
+    <div class="cell shrink">
+        <div class="grid-x">
+
+            {% for c, item in filter_info %}
+                {% set type = item.config.post_archive_filter_repeater_display_type %}
+                {% set multiple = item.config.post_archive_filter_repeater_allow_multiple %}
+                {% set form_name = "" ~ id ~ "[filters][" ~ c ~ "][" ~ item.taxonomy.name ~ "][]" %}
+
+                {% set selected_filter = attribute(attribute(get, id).filters, c) %}
+
+                <div class="cell small-12">
+
+                    <div class="grid-container">
+                        <div class="grid-x grid-padding-x">
+                            {% for term in item.terms %}
+                                <form action="" class="text-center cell auto">
+                                    <input type="hidden" name="{{ id }}">
+                                    <input type="hidden" name="{{ form_name }}" value="{{ term.slug }}">
+                                    <input type="submit" class="button" value="{{ term.name }}">
+                                </form>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+</div>
+

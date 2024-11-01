@@ -1,0 +1,138 @@
+{% set engine = display.post_archive_filter_display_config_searchwp_engine %}
+{% set keyword_search = display.post_archive_filter_display_config_keyword_search %}
+{% set filter_title = "Filter & Search" %}
+{% if display.post_archive_filter_display_config_filter_title %}
+    {% set filter_title = display.post_archive_filter_display_config_filter_title %}
+{% endif %}
+
+<form action="" class="is_post_excerpt_filter grid-container full-height">
+
+    {# the engine value is the swp engine that we're using #}
+    <div class="grid-y full-height grid-padding-y">
+
+        <div class="cell">
+            <h3 class="open-sans">{{ filter_title }}</h3>
+            <div class="is_divider primary"></div>
+
+            {% if keyword_search %}
+                <input type="hidden" name="{{ id }}[engine]" value="{{ engine }}"/>
+
+                <div class="spacer xsmall"></div>
+                <div class="grid-x align-middle is_post_excerpt_filter_keyword_search">
+                    <div class="cell shrink">
+                        <i class="fa fa-search gray_xlight-text"></i>
+                    </div>
+                    <div class="cell auto space-left space-right">
+                        <input
+                                type="text"
+                                placeholder="Keyword Search"
+                                name="{{ id }}[keyword]"
+                                class="no-margin"
+                                value="{{ current_keyword }}"
+                        >
+                    </div>
+                </div>
+            {% endif %}
+
+        </div>
+
+        <div class="cell">
+            <div class="grid-x">
+
+                {% for c, item in filter_info %}
+                    {% set type = item.config.post_archive_filter_repeater_display_type %}
+                    {% set multiple = item.config.post_archive_filter_repeater_allow_multiple %}
+                    {% set form_name = "" ~ id ~ "[filters][" ~ c ~ "][" ~ item.taxonomy.name ~ "][]" %}
+
+                    {% set selected_filter = attribute(attribute(get, id).filters, c) %}
+
+                    <div class="cell small-12">
+                        <div class="padding-box small gray_xlight-background">
+                            <label class="gray_dark-text space-left">
+                                <strong>
+                                    {{ item.taxonomy.label }}
+                                </strong>
+                            </label>
+                        </div>
+
+                        <div class="padding-box small">
+                            {% if type == "select" %}
+
+                                <select
+                                        name="{{ form_name }}{{ multiple ? '[]' : '' }}"
+                                        {{ multiple ? 'multiple' : '' }}
+                                >
+                                    <option value=""> ---</option>
+                                    {% for term in item.terms %}
+                                        <option
+                                                name="{{ term.slug }}"
+                                                value="{{ term.slug }}"
+                                                id="{{ item.taxonomy.name }}_{{ term.slug }}"
+                                        >
+                                            {{ term.name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+
+                            {% endif %}
+
+                            {% if type == "list" %}
+
+
+
+                                <ul class="is_post_excerpt_filter_selector menu">
+
+
+                                    {% for term in item.terms %}
+
+                                        {% set checked = '' %}
+
+                                        {% for selected_terms in selected_filter %}
+                                            {% for selected_term in selected_terms %}
+                                                {% if selected_term == term.slug %}
+                                                    {% set checked = 'checked' %}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endfor %}
+
+
+                                        <li>
+
+                                            <input
+                                                    type="{{ multiple ? 'checkbox' : 'radio' }}"
+                                                    name="{{ form_name }}"
+                                                    value="{{ term.slug }}"
+                                                    id="{{ id }}_{{ item.taxonomy.name }}_{{ term.slug }}"
+                                                    {{ checked }}
+                                            >
+                                            <label
+                                                    for="{{ id }}_{{ item.taxonomy.name }}_{{ term.slug }}"
+                                            >
+                                                {{ term.name }}
+                                            </label>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="spacer"></div>
+
+
+                {% endfor %}
+
+            </div>
+        </div>
+
+        {{ query_string_form_fields }}
+        {{ query_string_form_fields | raw}}
+
+        <div class="cell">
+            <input type="submit" class="button small primary_xdark-background expanded no_margin"
+                   value="Update Filters">
+        </div>
+
+    </div>
+</form>
+

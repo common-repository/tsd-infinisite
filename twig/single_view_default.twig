@@ -1,0 +1,24 @@
+{{ header | raw }}
+<div class='is-page-builder-wrapper grid-y'>
+
+    {{ top_sidebar_html | raw }}
+
+    <div class='cell'>
+        <div class='grid-x'>
+
+            {{ left_sidebar_html | raw }}
+
+            <div class='cell auto'>
+                {{ page_builder_html_output | raw }}
+            </div>
+
+            {{ right_sidebar_html | raw }}
+
+        </div>
+    </div>
+
+    {{ bottom_sidebar_html | raw }}
+
+</div>
+
+{{ footer | raw }}

@@ -1,0 +1,43 @@
+.is-post-excerpt {
+
+  .is_post_excerpt_filter {
+
+    .is_post_excerpt_filter_keyword_search {
+
+      input[type=text] {
+        border: none;
+        border-bottom: 1px solid $gray_xlight;
+        box-shadow: none;
+        font-size: 13px;
+        transition: 250ms all ease-out;
+
+        &:focus {
+          border-bottom-color: $gray;
+        }
+
+        &::placeholder {
+          font-style: italic;
+        }
+      }
+
+    }
+
+    .is_post_excerpt_filter_selector {
+
+      li {
+        width: 100%;
+        display: flex;
+        margin-bottom: 4px;
+
+        input {
+          position: relative;
+          top: 4px;
+        }
+      }
+    }
+
+
+  }
+
+
+}

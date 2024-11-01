@@ -1,0 +1,8 @@
+{
+  "require": {
+    "nategood/httpful": "*",
+    "leafo/scssphp": "0.7.1",
+    "twig/twig":"1.5",
+    "meyfa/php-svg": "^0.6.1"
+  }
+}
